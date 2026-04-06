@@ -24,18 +24,9 @@ jobs:
       - name: Install wasm-tools workload
         run: dotnet workload install wasm-tools
 
-      - name: Clean Blazor WASM Project
-        working-directory: BlazorPortfolio.BlazorWASM
-        run: dotnet clean
-
       - name: Publish Blazor WASM
         working-directory: BlazorPortfolio.BlazorWASM
         run: dotnet publish -c Release
-
-      - name: Add timestamp to force diff
-        working-directory: BlazorPortfolio.BlazorWASM/bin/Release/net10.0/publish/wwwroot
-        run: |
-          echo "Build: $(date)" > build.txt
 
       - name: Push publish output to build branch
         uses: s0/git-publish-subdir-action@master
