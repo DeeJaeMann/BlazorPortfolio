@@ -28,10 +28,6 @@ jobs:
         working-directory: BlazorPortfolio.BlazorWASM
         run: dotnet clean
 
-      - name: Delete previous publish output
-        working-directory: BlazorPortfolio.BlazorWASM/bin/Release/net10.0
-        run: rm -rf publish
-
       - name: Publish Blazor WASM
         working-directory: BlazorPortfolio.BlazorWASM
         run: dotnet publish -c Release
