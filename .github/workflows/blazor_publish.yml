@@ -29,16 +29,16 @@ jobs:
         run: dotnet clean
 
       - name: Delete previous publish output
-        working-directory: BlazorPortfolio.BlazorWASM
-        run: rm -rf bin/Release/net10.0/publish
-
-      - name: Add timestamp to force diff
-        working-directory: BlazorPortfolio.BlazorWASM
-        run: echo "Build: $(date)" > bin/Release/net10.0/publish/wwwroot/build.txt
+        working-directory: BlazorPortfolio.BlazorWASM/bin/Release/net10.0
+        run: rm -rf publish
 
       - name: Publish Blazor WASM
         working-directory: BlazorPortfolio.BlazorWASM
         run: dotnet publish -c Release
+
+      - name: Add timestamp to force diff
+        working-directory: BlazorPortfolio.BlazorWASM/bin/Release/net10.0/publish/wwwroot
+        run echo "Build: $(date)" > build.txt
 
       - name: Push publish output to build branch
         uses: s0/git-publish-subdir-action@master
