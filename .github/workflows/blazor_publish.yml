@@ -32,6 +32,10 @@ jobs:
         working-directory: BlazorPortfolio.BlazorWASM
         run: rm -rf bin/Release/net10.0/publish
 
+      - name: Add timestamp to force diff
+        working-directory: BlazorPortfolio.BlazorWASM
+        run: echo "Build: $(date)" > bin/Release/net10.0/publish/wwwroot/build.txt
+
       - name: Publish Blazor WASM
         working-directory: BlazorPortfolio.BlazorWASM
         run: dotnet publish -c Release
