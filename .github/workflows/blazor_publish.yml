@@ -23,7 +23,7 @@ jobs:
         run: dotnet publish -c Release
 
       - name: Push publish output to build branch
-        uses: s0/git-publish-subdir-action@v3
+        uses: s0/git-publish-subdir-action@master
         env:
           REPO: self
           BRANCH: build
