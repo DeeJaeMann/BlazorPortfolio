@@ -21,6 +21,10 @@ jobs:
         with:
           dotnet-version: 10.0.x
 
+      - name: Clean Blazor WASM Project
+        working-directory: BlazorPortfolio.BlazorWASM
+        run: dotnet clean
+
       - name: Publish Blazor WASM
         working-directory: BlazorPortfolio.BlazorWASM
         run: dotnet publish -c Release
