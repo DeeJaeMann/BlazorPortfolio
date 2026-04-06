@@ -30,7 +30,7 @@ jobs:
         env:
           REPO: self
           BRANCH: build
-          FOLDER: BlazorPortfolio.BlazorWASM/bin/Release/net10.0/publish
+          FOLDER: BlazorPortfolio.BlazorWASM/bin/Release/net10.0/publish/wwwroot
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "Blazor WASM build: ({sha}) {msg}"
 
